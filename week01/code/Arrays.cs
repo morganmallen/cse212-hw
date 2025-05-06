@@ -13,7 +13,18 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        //1. create a new array with the designated length
+        //2. loop over the array and multiply each index by the given number
+        //3. return the result
+
+        double[] result = new double[length];
+
+        for (int i = 0; i < length; i++)
+        {
+            result[i] = number * (i + 1);
+        }
+
+        return result; // replace this return statement with your own
     }
 
     /// <summary>
@@ -29,5 +40,19 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        //1. create a count variable that holds that data.Count
+        //2. break down the list into two parts: one part that holds the numbers to the right of the amount and one that holds the number to the left
+        //3. clear the original list
+        //4. add the two parts I create with the endPart first and the beginning part last.
+
+        int count = data.Count;
+        List<int> endPart = data.GetRange(count - amount, amount);
+        List<int> beginningPart = data.GetRange(0, count - amount);
+
+        data.Clear();
+
+        data.AddRange(endPart);
+        data.AddRange(beginningPart);
     }
 }
